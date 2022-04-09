@@ -1,0 +1,6 @@
+<div [ngClass]=" todo.isCompleted ? 'green' : ''">
+    <p>{{todo?.title}}</p>
+    <button (click)="onComplete(todo?.id)">{{ todo.isCompleted ? 'InComplete' : 'Complete'}}</button>
+    <button>edit</button>
+    <button (click)="onDelete(todo?.id)">delete</button>
+</div>
