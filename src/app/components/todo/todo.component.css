@@ -1,4 +1,10 @@
 .green{
-    background-color: green;
+    background-color: green !important;
     color: white;
+}
+
+.example-card {
+    margin-top: 10px;
+    max-width: 400px;
+    background: whitesmoke;
 }

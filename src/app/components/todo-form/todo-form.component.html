@@ -1,4 +1,9 @@
-<form>
+<!-- <form>
     <input type="text" name="inputText" [(ngModel)]="inputText">
     <button (click)="onSubmit()">{{ this.todo ? 'Edit' : 'Add'}}</button>
-</form>
+</form> -->
+<mat-form-field appearance="fill">
+    <mat-label>Enter Todo</mat-label>
+    <input matInput name="inputText" [(ngModel)]="inputText">
+</mat-form-field>
+<button mat-raised-button color="primary" (click)="onSubmit()">{{ this.todo ? 'Edit' : 'Add'}}</button>

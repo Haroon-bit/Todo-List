@@ -1,6 +1,17 @@
-<div [ngClass]=" todo.isCompleted ? 'green' : ''">
+<!-- <div [ngClass]=" todo.isCompleted ? 'green' : ''">
     <p>{{todo?.title}}</p>
     <button (click)="onComplete(todo?.id)">{{ todo.isCompleted ? 'InComplete' : 'Complete'}}</button>
-    <button (click)="onEdit(todo?.id)">edit</button>
-    <button (click)="onDelete(todo?.id)">delete</button>
-</div>
+    <button (click)="onEdit(todo?.id)">Edit</button>
+    <button (click)="onDelete(todo?.id)">Delete</button>
+</div> -->
+
+<mat-card class="example-card" [ngClass]="todo.isCompleted ? 'green' : ''">
+    <mat-card-header>
+      <mat-card-title>{{todo?.title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-actions>
+      <button mat-raised-button (click)="onComplete(todo?.id)">{{ todo.isCompleted ? 'InComplete' : 'Complete'}}</button>
+      <button mat-raised-button (click)="onEdit(todo?.id)">Edit</button>
+      <button mat-raised-button (click)="onDelete(todo?.id)">Delete</button>
+    </mat-card-actions>
+  </mat-card>

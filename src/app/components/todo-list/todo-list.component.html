@@ -1,4 +1,6 @@
-<app-todo-form (addTodo)="addTodo($event)">
-</app-todo-form>
 
-<app-todo (completeTodo)="completeTodo($event)" (deleteTodo)="deleteTodo($event)" [todo]="todo" *ngFor="let todo of todoList"></app-todo>
+<div class="myTodoContainer">
+    <h4>Todo List</h4>
+    <app-todo-form (addTodo)="addTodo($event)"></app-todo-form>
+    <app-todo (completeTodo)="completeTodo($event)" (deleteTodo)="deleteTodo($event)" [todo]="todo" *ngFor="let todo of todoList"></app-todo>
+</div>
