@@ -20,11 +20,15 @@ export class TodoListComponent implements OnInit {
     this.todoList.push(todo);
   }
 
-  deleteTodo(id){
-    // this.todoList = this.todoList.filter(t=> t.id !== id);
-    this.todoService.deleteTodo(id).subscribe(res=>{
-      this.getAllTodos(); 
-    })
+  deleteTodo(obj){
+    if(obj.type == 'delete'){
+      this.todoService.deleteTodo(obj.id).subscribe(res=>{
+        this.getAllTodos(); 
+      })
+    }else{
+      this.todoList = this.todoList.filter(t=> t.id !== obj.id);
+    }
+    
   }
 
   completeTodo(id){

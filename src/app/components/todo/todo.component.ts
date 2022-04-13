@@ -18,7 +18,7 @@ export class TodoComponent implements OnInit {
   }
 
   onDelete(id){
-    this.deleteTodo.emit(id);
+    this.deleteTodo.emit({id,type:'delete'});
   }
 
   onComplete(id){
@@ -27,7 +27,7 @@ export class TodoComponent implements OnInit {
 
   onEdit(id){
     this.todoService.sendEditTodo(this.todo);
-    this.deleteTodo.emit(id)
+    this.deleteTodo.emit({id,type:'edit'})
   }
 
 }
