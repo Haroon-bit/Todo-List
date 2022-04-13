@@ -18,7 +18,6 @@ export class TodoFormComponent implements OnInit {
     this.todoService.$todoObserver.subscribe(todo => {
       this.todo = todo;
       this.inputText = this.todo.title;
-      debugger
     })
   }
 
@@ -26,18 +25,27 @@ export class TodoFormComponent implements OnInit {
     let obj;
     if(this.todo == undefined){
       obj = {
-        id : Math.floor(Math.random()*100),
+        // id : Math.floor(Math.random()*100),
         title : this.inputText,
         isCompleted : false
       }
+
+      this.todoService.saveTodo(obj).subscribe(res=>{
+        this.addTodo.emit(res);
+      })
     }else{
       obj = { ...this.todo , title:this.inputText };
+      this.todoService.updateTodo(obj.id,obj).subscribe(res=>{
+        this.addTodo.emit(res);
+      })
     }
     
 
-    this.addTodo.emit(obj);
+    // this.addTodo.emit(obj);
     this.inputText = '';
     this.todo = undefined;
   }
+
+
 
 }

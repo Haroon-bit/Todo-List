@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -9,9 +10,10 @@ export class TodoListComponent implements OnInit {
 
   todoList= [];
 
-  constructor() { }
+  constructor(private todoService:TodoService) { }
 
   ngOnInit(): void {
+    this.getAllTodos();
   }
 
   addTodo(todo){
@@ -19,13 +21,25 @@ export class TodoListComponent implements OnInit {
   }
 
   deleteTodo(id){
-    this.todoList = this.todoList.filter(t=> t.id !== id);
+    // this.todoList = this.todoList.filter(t=> t.id !== id);
+    this.todoService.deleteTodo(id).subscribe(res=>{
+      this.getAllTodos(); 
+    })
   }
 
   completeTodo(id){
     let index = this.todoList.findIndex(t=> t.id == id);
     this.todoList[index].isCompleted = !this.todoList[index].isCompleted;
-    console.log(this.todoList)
+    this.todoService.updateTodo(this.todoList[index].id,this.todoList[index]).subscribe(res=>{
+      this.getAllTodos();
+    })
+
+  }
+
+  getAllTodos(){
+    this.todoService.getAllTodos().subscribe(res=>{
+      this.todoList = res;
+    })
   }
 
 }
