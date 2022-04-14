@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     TodoFormComponent,
     TodoComponent,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

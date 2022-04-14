@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-child',
@@ -11,7 +12,11 @@ export class ChildComponent implements OnInit {
   @Input('myNameList') myNameList;
   @Output('listen') listen = new EventEmitter<any>();
 
-  constructor() { }
+  constructor(private activatedRoute:ActivatedRoute) {
+    this.activatedRoute.queryParams.subscribe(res=>{
+      
+    })
+   }
 
   ngOnInit(): void {
   }

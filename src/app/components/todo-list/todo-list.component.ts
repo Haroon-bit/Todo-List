@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
@@ -10,7 +11,8 @@ export class TodoListComponent implements OnInit {
 
   todoList= [];
 
-  constructor(private todoService:TodoService) { }
+  constructor(private todoService:TodoService,
+    private router:Router) { }
 
   ngOnInit(): void {
     this.getAllTodos();
@@ -43,6 +45,16 @@ export class TodoListComponent implements OnInit {
   getAllTodos(){
     this.todoService.getAllTodos().subscribe(res=>{
       this.todoList = res;
+    })
+  }
+
+  routeToChild(){
+    this.router.navigate(['child'], 
+    {
+      queryParams:{
+        id:1,
+        name:"Haroon"
+      }
     })
   }
 
