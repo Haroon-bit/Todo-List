@@ -10,6 +10,7 @@ import { TodoService } from 'src/app/services/todo.service';
 export class TodoListComponent implements OnInit {
 
   todoList= [];
+  showRoutes = false;
 
   constructor(private todoService:TodoService,
     private router:Router) { }

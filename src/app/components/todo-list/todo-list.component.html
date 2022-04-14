@@ -6,8 +6,10 @@
 </div>
 
 
-<a routerLink="../parent">Go to parent</a><br>
-<a [routerLink]="['../child']">Go to child</a><br>
-<a [routerLink]="['../parent/1/Haroon']">Go to parent with path variable</a><br>
-<a routerLink="../child" [queryParams]='{id:1,marium:true}'>Go to child with query params</a><br>
-<a (click)="routeToChild()">Go to child with query params</a>
+<div *ngIf="showRoutes">
+    <a routerLink="../parent">Go to parent</a><br>
+    <a [routerLink]="['../child']">Go to child</a><br>
+    <a [routerLink]="['../parent/1/Haroon']">Go to parent with path variable</a><br>
+    <a routerLink="../child" [queryParams]='{id:1,marium:true}'>Go to child with query params</a><br>
+    <a (click)="routeToChild()">Go to child with query params</a>
+</div>
